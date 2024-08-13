@@ -1,10 +1,14 @@
 import { FormEvent, useState } from "react";
+interface Props {
+  onSubmit: (item: string, quantity: number) => void;
+}
 
-function ShoppingForm() {
+function ShoppingForm(props: Props) {
   const [item, setItem] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(0);
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    props.onSubmit(item, quantity);
   };
 
   return (
