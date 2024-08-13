@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 function ShoppingForm() {
   const [item, setItem] = useState<string>("");
-  const [quantity, setQuantity] = useState<number>(1);
+  const [quantity, setQuantity] = useState<number>(0);
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -16,7 +20,7 @@ function ShoppingForm() {
         <input
           type="number"
           value={quantity}
-          onChange={(e) => setQuantity(parseInt(e.target.value))}
+          onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value)))}
         />
         <button>Lägg till vara </button>
       </form>
