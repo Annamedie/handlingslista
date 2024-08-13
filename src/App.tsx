@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Checkbox from "./components/Checkbox";
+import EditList from "./components/EditList";
 import ShoppingForm from "./components/ShoppingForm";
 
 interface ShoppingItem {
@@ -15,6 +16,16 @@ function App() {
   const toggleChecked = (index: number) => {
     const newListItems = [...listItems];
     newListItems[index].checked = !newListItems[index].checked;
+    setListItems(newListItems);
+  };
+
+  const editList = (index: number, newItem: string, newQuantity: number) => {
+    const newListItems = [...listItems];
+    newListItems[index] = {
+      ...newListItems[index],
+      item: newItem,
+      quantity: newQuantity,
+    };
     setListItems(newListItems);
   };
 
@@ -40,6 +51,13 @@ function App() {
             <Checkbox
               checked={listItem.checked}
               onChange={() => toggleChecked(index)}
+            />
+            <EditList
+              item={listItem.item}
+              quantity={listItem.quantity}
+              onEdit={(newItem, newQuantity) =>
+                editList(index, newItem, newQuantity)
+              }
             />
           </li>
         ))}
