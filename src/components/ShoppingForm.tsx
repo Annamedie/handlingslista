@@ -23,7 +23,7 @@ function ShoppingForm(props: Props) {
           value={item}
           onChange={(e) => setItem(e.target.value)}
         />
-        <h4>Hur många varor?</h4>
+        <h5>Hur många varor?</h5>
         <input
           type="number"
           value={quantity}
