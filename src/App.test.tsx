@@ -57,6 +57,7 @@ describe("App", () => {
     });
 
     fireEvent.click(screen.getByRole("button", { name: "Spara" }));
+    expect(screen.queryByText("Apple 5 stycken")).not.toBeInTheDocument();
     expect(screen.getByText("Banana 10 stycken")).toBeVisible();
   });
 });
