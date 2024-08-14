@@ -21,6 +21,7 @@ function EditList({ item, quantity, onEdit }: Props) {
         <input
           type="text"
           value={newItem}
+          placeholder="Ny vara"
           onChange={(e) => setNewItem(e.target.value)}
         />
         <input
