@@ -30,6 +30,7 @@ function EditList({ item, quantity, onEdit }: Props) {
           onChange={(e) =>
             setNewQuantity(Math.max(1, parseInt(e.target.value)))
           }
+          data-testid="editForm"
         />
         <button onClick={handleEdit}>Spara</button>
       </div>

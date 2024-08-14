@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/12</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/12</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -145,33 +145,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,13 +182,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -216,20 +216,20 @@ interface ShoppingItem {
 function App() {
   const [listItems, setListItems] = useState&lt;ShoppingItem[]&gt;([]);
 &nbsp;
-  const toggleChecked = <span class="fstat-no" title="function not covered" >(i</span>ndex: number) =&gt; {
-    const newListItems = <span class="cstat-no" title="statement not covered" >[...listItems];</span>
-<span class="cstat-no" title="statement not covered" >    newListItems[index].checked = !newListItems[index].checked;</span>
-<span class="cstat-no" title="statement not covered" >    setListItems(newListItems);</span>
+  const toggleChecked = (index: number) =&gt; {
+    const newListItems = [...listItems];
+    newListItems[index].checked = !newListItems[index].checked;
+    setListItems(newListItems);
   };
 &nbsp;
-  const editList = <span class="fstat-no" title="function not covered" >(i</span>ndex: number, newItem: string, newQuantity: number) =&gt; {
-    const newListItems = <span class="cstat-no" title="statement not covered" >[...listItems];</span>
-<span class="cstat-no" title="statement not covered" >    newListItems[index] = {</span>
+  const editList = (index: number, newItem: string, newQuantity: number) =&gt; {
+    const newListItems = [...listItems];
+    newListItems[index] = {
       ...newListItems[index],
       item: newItem,
       quantity: newQuantity,
     };
-<span class="cstat-no" title="statement not covered" >    setListItems(newListItems);</span>
+    setListItems(newListItems);
   };
 &nbsp;
   return (
@@ -246,20 +246,20 @@ function App() {
           &lt;li
             key={index}
             style={{
-              textDecoration: listItem.checked ? <span class="branch-0 cbranch-no" title="branch not covered" >"line-through" : "</span>none",
+              textDecoration: listItem.checked ? "line-through" : "none",
             }}
           &gt;
             {listItem.item} {listItem.quantity}{" "}
             {listItem.quantity == 1 ? <span class="branch-0 cbranch-no" title="branch not covered" >"styck" : "</span>stycken"}
             &lt;Checkbox
               checked={listItem.checked}
-              onChange={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >t</span>oggleChecked(index)}</span>
+              onChange={() =&gt; toggleChecked(index)}
             /&gt;
             &lt;EditList
               item={listItem.item}
               quantity={listItem.quantity}
-              onEdit={<span class="fstat-no" title="function not covered" >(n</span>ewItem, newQuantity) =&gt;
-<span class="cstat-no" title="statement not covered" >                editList(index, newItem, newQuantity)</span>
+              onEdit={(newItem, newQuantity) =&gt;
+                editList(index, newItem, newQuantity)
               }
             /&gt;
           &lt;/li&gt;
@@ -277,7 +277,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-08-14T12:20:41.435Z
+                at 2024-08-14T12:49:00.238Z
             </div>
         <script src="../prettify.js"></script>
         <script>
