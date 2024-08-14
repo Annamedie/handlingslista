@@ -46,6 +46,8 @@ describe("App", () => {
       target: { value: "5" },
     });
     fireEvent.click(screen.getByText("Lägg till vara"));
+    expect(screen.getByText("Apple 5 stycken")).toBeVisible();
+
     fireEvent.click(screen.getByRole("button", { name: "Redigera" }));
     fireEvent.input(screen.getByPlaceholderText("Ny vara"), {
       target: { value: "Banana" },
