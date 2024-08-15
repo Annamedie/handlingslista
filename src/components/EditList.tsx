@@ -12,6 +12,7 @@ function EditList({ item, quantity, onEdit }: Props) {
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
   const handleEdit = () => {
+    if (!newItem) return;
     onEdit(newItem, newQuantity);
     setIsEditing(false);
   };

@@ -17,6 +17,19 @@ describe("EditList", () => {
     expect(screen.getByRole("spinbutton")).toBeVisible();
     expect(screen.getByRole("button", { name: "Spara" })).toBeVisible();
   });
+  it("Should not be possible to save if the new item is empty", () => {
+    const handleEdit = vi.fn();
+    render(<EditList item="Lingonberries" quantity={7} onEdit={handleEdit} />);
+    fireEvent.click(screen.getByRole("button", { name: "Redigera" }));
+    fireEvent.input(screen.getByPlaceholderText("Ny vara"), {
+      target: { value: "" },
+    });
+    fireEvent.input(screen.getByRole("spinbutton"), {
+      target: { value: "5" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Spara" }));
+    expect(handleEdit).not.toBeCalled();
+  });
   it("Should call onEdit with the new values when clicking the Save button", () => {
     const handleEdit = vi.fn();
     render(<EditList item="Roseberries" quantity={9} onEdit={handleEdit} />);
