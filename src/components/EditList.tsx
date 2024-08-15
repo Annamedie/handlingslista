@@ -17,7 +17,7 @@ function EditList({ item, quantity, onEdit }: Props) {
   };
   if (isEditing) {
     return (
-      <div>
+      <div className="edit-list">
         <input
           type="text"
           value={newItem}

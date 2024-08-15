@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>46/46</span>
+                <span class='fraction'>47/47</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.88% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/9</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>46/46</span>
+                <span class='fraction'>47/47</span>
             </div>
         
             
@@ -132,7 +132,12 @@
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -163,6 +168,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
@@ -182,15 +188,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -234,37 +244,42 @@ function App() {
 &nbsp;
   return (
     &lt;&gt;
-      &lt;h1&gt;Handlingslistan&lt;/h1&gt;
+      &lt;div className="app"&gt;
+        &lt;h1&gt;Handlingslistan&lt;/h1&gt;
 &nbsp;
-      &lt;ShoppingForm
-        onSubmit={(item, quantity) =&gt;
-          setListItems([...listItems, { item, quantity, checked: false }])
-        }
-      /&gt;
-      &lt;ol&gt;
-        {listItems.map((listItem, index) =&gt; (
-          &lt;li
-            key={index}
-            style={{
-              textDecoration: listItem.checked ? "line-through" : "none",
-            }}
-          &gt;
-            {listItem.item} {listItem.quantity}{" "}
-            {listItem.quantity == <span class="branch-0 cbranch-no" title="branch not covered" >1 ? "styck" : "</span>stycken"}
-            &lt;Checkbox
-              checked={listItem.checked}
-              onChange={() =&gt; toggleChecked(index)}
-            /&gt;
-            &lt;EditList
-              item={listItem.item}
-              quantity={listItem.quantity}
-              onEdit={(newItem, newQuantity) =&gt;
-                editList(index, newItem, newQuantity)
-              }
-            /&gt;
-          &lt;/li&gt;
-        ))}
-      &lt;/ol&gt;
+        &lt;ShoppingForm
+          onSubmit={(item, quantity) =&gt;
+            setListItems([...listItems, { item, quantity, checked: false }])
+          }
+        /&gt;
+        &lt;ol&gt;
+          {listItems.map((listItem, index) =&gt; (
+            &lt;li key={index}&gt;
+              &lt;p
+                style={{
+                  textDecoration: listItem.checked ? "line-through" : "none",
+                }}
+              &gt;
+                {listItem.item} {listItem.quantity}{" "}
+                {listItem.quantity == 1 ? "styck" : "stycken"}
+              &lt;/p&gt;
+&nbsp;
+              &lt;Checkbox
+                checked={listItem.checked}
+                onChange={() =&gt; toggleChecked(index)}
+              /&gt;
+&nbsp;
+              &lt;EditList
+                item={listItem.item}
+                quantity={listItem.quantity}
+                onEdit={(newItem, newQuantity) =&gt;
+                  editList(index, newItem, newQuantity)
+                }
+              /&gt;
+            &lt;/li&gt;
+          ))}
+        &lt;/ol&gt;
+      &lt;/div&gt;
     &lt;/&gt;
   );
 }
@@ -277,7 +292,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-08-15T13:28:21.569Z
+                at 2024-08-15T14:43:56.235Z
             </div>
         <script src="../prettify.js"></script>
         <script>

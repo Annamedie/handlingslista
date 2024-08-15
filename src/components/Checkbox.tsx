@@ -4,6 +4,13 @@ interface Props {
 }
 
 function Checkbox({ checked, onChange }: Props) {
-  return <input type="checkbox" checked={checked} onChange={onChange} />;
+  return (
+    <input
+      type="checkbox"
+      className="checkbox"
+      checked={checked}
+      onChange={onChange}
+    />
+  );
 }
 export default Checkbox;

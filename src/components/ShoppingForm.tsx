@@ -14,7 +14,7 @@ function ShoppingForm(props: Props) {
   };
 
   return (
-    <div>
+    <div className="shopping-form">
       <form onSubmit={handleSubmit}>
         <h4>Vad vill du shoppa?</h4>
         <input

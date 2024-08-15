@@ -31,37 +31,42 @@ function App() {
 
   return (
     <>
-      <h1>Handlingslistan</h1>
+      <div className="app">
+        <h1>Handlingslistan</h1>
 
-      <ShoppingForm
-        onSubmit={(item, quantity) =>
-          setListItems([...listItems, { item, quantity, checked: false }])
-        }
-      />
-      <ol>
-        {listItems.map((listItem, index) => (
-          <li
-            key={index}
-            style={{
-              textDecoration: listItem.checked ? "line-through" : "none",
-            }}
-          >
-            {listItem.item} {listItem.quantity}{" "}
-            {listItem.quantity == 1 ? "styck" : "stycken"}
-            <Checkbox
-              checked={listItem.checked}
-              onChange={() => toggleChecked(index)}
-            />
-            <EditList
-              item={listItem.item}
-              quantity={listItem.quantity}
-              onEdit={(newItem, newQuantity) =>
-                editList(index, newItem, newQuantity)
-              }
-            />
-          </li>
-        ))}
-      </ol>
+        <ShoppingForm
+          onSubmit={(item, quantity) =>
+            setListItems([...listItems, { item, quantity, checked: false }])
+          }
+        />
+        <ol>
+          {listItems.map((listItem, index) => (
+            <li key={index}>
+              <p
+                style={{
+                  textDecoration: listItem.checked ? "line-through" : "none",
+                }}
+              >
+                {listItem.item} {listItem.quantity}{" "}
+                {listItem.quantity == 1 ? "styck" : "stycken"}
+              </p>
+
+              <Checkbox
+                checked={listItem.checked}
+                onChange={() => toggleChecked(index)}
+              />
+
+              <EditList
+                item={listItem.item}
+                quantity={listItem.quantity}
+                onEdit={(newItem, newQuantity) =>
+                  editList(index, newItem, newQuantity)
+                }
+              />
+            </li>
+          ))}
+        </ol>
+      </div>
     </>
   );
 }

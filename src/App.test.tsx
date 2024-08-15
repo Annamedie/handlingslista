@@ -11,7 +11,7 @@ describe("App", () => {
       target: { value: "Mushrooms" },
     });
     fireEvent.input(screen.getByRole("spinbutton"), {
-      target: { value: "5" },
+      target: { value: "1" },
     });
     fireEvent.click(screen.getByText("Lägg till vara"));
     fireEvent.input(screen.getByRole("textbox"), {
@@ -21,7 +21,7 @@ describe("App", () => {
       target: { value: "10" },
     });
     fireEvent.click(screen.getByText("Lägg till vara"));
-    expect(screen.getByText("Mushrooms 5 stycken")).toBeVisible();
+    expect(screen.getByText("Mushrooms 1 styck")).toBeVisible();
     expect(screen.getByText("Potatoes 10 stycken")).toBeVisible();
   });
   it("Should be possible to check off items", () => {
