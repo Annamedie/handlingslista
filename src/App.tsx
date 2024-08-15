@@ -42,19 +42,21 @@ function App() {
         <ol>
           {listItems.map((listItem, index) => (
             <li key={index}>
-              <p
-                style={{
-                  textDecoration: listItem.checked ? "line-through" : "none",
-                }}
-              >
-                {listItem.item} {listItem.quantity}{" "}
-                {listItem.quantity == 1 ? "styck" : "stycken"}
-              </p>
+              <div className="inner-container">
+                <p
+                  style={{
+                    textDecoration: listItem.checked ? "line-through" : "none",
+                  }}
+                >
+                  {listItem.item} {listItem.quantity}{" "}
+                  {listItem.quantity == 1 ? "styck" : "stycken"}
+                </p>
 
-              <Checkbox
-                checked={listItem.checked}
-                onChange={() => toggleChecked(index)}
-              />
+                <Checkbox
+                  checked={listItem.checked}
+                  onChange={() => toggleChecked(index)}
+                />
+              </div>
 
               <EditList
                 item={listItem.item}

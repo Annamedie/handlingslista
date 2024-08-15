@@ -13,6 +13,12 @@ describe("ShoppingForm", () => {
     expect(screen.getByRole("spinbutton")).toBeVisible();
     expect(screen.getByRole("button")).toHaveTextContent("Lägg till vara");
   });
+  it("Should not submit the form if the input is empty", () => {
+    const handleSubmit = vi.fn();
+    render(<ShoppingForm onSubmit={handleSubmit} />);
+    fireEvent.click(screen.getByRole("button"));
+    expect(handleSubmit).not.toBeCalled();
+  });
   it("Should submit the form with the input values", () => {
     const handleSubmit = vi.fn();
     render(<ShoppingForm onSubmit={handleSubmit} />);

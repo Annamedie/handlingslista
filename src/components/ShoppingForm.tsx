@@ -8,6 +8,7 @@ function ShoppingForm(props: Props) {
   const [quantity, setQuantity] = useState<number>(1);
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (!item) return;
     props.onSubmit(item, quantity);
     setItem("");
     setQuantity(1);
