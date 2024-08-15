@@ -5,7 +5,8 @@ import App from "./App";
 describe("App", () => {
   it("Should be possible to add multiple items", () => {
     render(<App />);
-    //kolla efter h1
+    const h1 = screen.getByText("Handlingslistan");
+    expect(h1).toBeVisible();
     fireEvent.input(screen.getByRole("textbox"), {
       target: { value: "Mushrooms" },
     });
